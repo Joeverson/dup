@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nevando</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            #pageFull {
+                margin: 0 auto;
+                width: 30%;
+                height: 200px;
+                background-color: gray;
+                position:relative;
+                overflow: hidden;
+            }
+            .floco{
+                position: relative;
+                background-color: white;
+                width: 5px;
+                height: 5px;
+                float: left;
+                margin-left: 30px;
+                display:inline;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="pageFull"></div>
+        <script>
+        var i;
+        var pos = Math.floor(Math.random());
+        var div = '';
+        var quant = 10;
+
+            for(var k=0; k<quant; k++)
+                div += "<div id='neve"+k+"' class='floco'></div>";
+            document.querySelector('#pageFull').innerHTML = div; // colocando as divs
+
+            setInterval(function(){
+                    pos += Math.floor(Math.random()*10);
+                    for (var i = 0; i < quant; i++) {
+                        if(pos < 199){
+                            document.querySelector('#neve'+i).style.top = (i%2 == 0)?(pos+10)+'px':pos+'px';     
+                            document.querySelector('#neve'+i).style.left = Math.floor(Math.random()*(18*i))+'px';
+                        }
+                    }
+
+                }, 300);
+        </script>
+    </body>
+</html>
